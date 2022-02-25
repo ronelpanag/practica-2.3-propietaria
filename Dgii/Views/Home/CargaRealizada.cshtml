@@ -1,0 +1,94 @@
+﻿@model Dgii.Models.Reporte
+@{
+    ViewData["Title"] = "Carga Realizada";
+}
+
+<div class="row mb-5">
+    <div class="col col-4">
+        <label>Identificacion</label>
+    </div>
+    <div class="col col-6">
+        <span class="form-control disabled">@Model.Identificacion</span>
+    </div>
+    <div class="col col-4">
+        <label>Cantidad de Registros</label>
+    </div>
+    <div class="col col-6">
+        <span class="form-control disabled">@Model.CantidadRegistros</span>
+    </div>
+    <div class="col col-4">
+        <label>Periodo</label>
+    </div>
+    <div class="col col-6">
+        <span class="form-control disabled">@Model.Periodo</span>
+    </div>
+    <div class="col col-4">
+        <label>Fecha de carga</label>
+    </div>
+    <div class="col col-6">
+        <span class="form-control disabled">@Model.FechaCarga.ToString("dd-MM-yyyy")</span>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>RNC o Cédula</th>
+                <th>Tipo Id</th>
+                <th>Tipo Bienes y Servicios Comprados</th>
+                <th>NCF</th>
+                <th>NCF ó Documento Modificado</th>
+                <th>Fecha Comprobante</th>
+                <th>Fecha Pago</th>
+                <th>Monto Facturado en Servicios</th>
+                <th>Monto Facturado en Bienes</th>
+                <th>Total Monto Facturado</th>
+                <th>ITBIS Facturado</th>
+                <th>ITBIS Retenido</th>
+                <th>ITBIS sujeto a Proporcionalidad</th>
+                <th>ITBIS llevado al Costo</th>
+                <th>ITBIS por Adelantar</th>
+                <th>ITBIS percibido en compras</th>
+                <th>Tipo de Retención en ISR</th>
+                <th>Monto Retención Renta</th>
+                <th>ISR Percibido en compras</th>
+                <th>Impuesto Selectivo al Consumo</th>
+                <th>Otros Impuesto/Tasas</th>
+                <th>Monto Propina Legal</th>
+                <th>Forma de Pago</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Detalles)
+            {
+                <tr>
+                    <td>@item.Identificacion</td>
+                    <td>@item.Tipo</td>
+                    <td>@item.TipoComprado</td>
+                    <td>@item.Ncf</td>
+                    <td>@item.Documento</td>
+                    <td>@item.FechaComprobante</td>
+                    <td>@item.FechaPago</td>
+                    <td>@item.MontoServicios</td>
+                    <td>@item.MontoBienes</td>
+                    <td>@item.TotalFacturado</td>
+                    <td>@item.ItbisFacturado</td>
+                    <td>@item.ItbisRetenido</td>
+                    <td>@item.ItbisProporcionado</td>
+                    <td>@item.ItbisCosto</td>
+                    <td>@item.ItbisPorAdelantar</td>
+                    <td>@item.ItbisPercibido</td>
+                    <td>@item.TipoIsr</td>
+                    <td>@item.MontoIsr</td>
+                    <td>@item.IsrPercibido</td>
+                    <td>@item.Isc</td>
+                    <td>@item.OtrosImpuestos</td>
+                    <td>@item.TotalFacturado</td>
+                    <td>@item.FormaPago</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

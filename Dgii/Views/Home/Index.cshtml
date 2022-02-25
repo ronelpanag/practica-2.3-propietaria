@@ -1,0 +1,22 @@
+﻿@model Dgii.Models.Carga
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Práctica 2.1</h1>
+    <p>Aplicacion utilizada para cargar archivo 606 desarrollado por Ronel Pantaleon y Fidel Acosta</p>
+</div>
+
+
+<form enctype="multipart/form-data" method="post" action="/Home/Index">
+    <dl>
+        <dt>
+            <label>Cargar archivo</label>
+        </dt>
+        <dd>
+            <input asp-for="FormFile" type="file" class="form-control-file">
+        </dd>
+    </dl>
+    <input class="btn btn-success" type="submit" value="Subir archivo">
+</form>
